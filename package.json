@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean:reports": "if exist cypress\\reports rmdir /q /s cypress\\reports && mkdir cypress\\reports && mkdir cypress\\reports\\mochareports",
+    "clean:reports": "if [ -d cypress/reports ]; then rm -rf cypress/reports && mkdir cypress/reports && mkdir cypress/reports/mochareports; fi",
     "pretest": "npm run clean:reports",
     "scripts": "cypress run",
     "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
